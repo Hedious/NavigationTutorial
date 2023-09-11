@@ -23,11 +23,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             NavigationTutorialTheme {
                 navController = rememberNavController()
-                NavHost(navController = navController, startDestination = "home_screen") {
-                    composable(route = "home_screen") {
+                NavHost(navController = navController, startDestination = Screen.Home.route) {
+                    composable(route = Screen.Home.route) {
                         HomeScreen(navController)
                     }
-                    composable(route = "detail_screen") {
+                    composable(route = Screen.Detail.route) {
                         DetailScreen(navController)
                     }
                 }

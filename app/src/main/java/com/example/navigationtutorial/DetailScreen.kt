@@ -16,8 +16,8 @@ fun DetailScreen(navController: NavController) {
     Box(Modifier.fillMaxSize(), Alignment.Center) {
         Text(text = "Detail Screen", color = Color.Red, modifier = Modifier.clickable {
             //navController.popBackStack()
-            navController.navigate("home_screen") {
-                popUpTo("home_screen") {
+            navController.navigate(Screen.Home.route) {
+                popUpTo(Screen.Home.route) {
                     inclusive = true
                 }
             }
