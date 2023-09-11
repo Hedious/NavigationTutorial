@@ -20,10 +20,14 @@ fun setUpNavGraph(navController: NavHostController) {
             arguments = listOf(
                 navArgument(DETAIL_ARGUMENT_KEY) {
                     type = NavType.IntType
+                },
+                navArgument(DETAIL_ARGUMENT_KEY2) {
+                    type = NavType.StringType
                 }
             )
         ) {
             Log.d("NavTag", it.arguments?.getInt(DETAIL_ARGUMENT_KEY).toString())
+            Log.d("NavTag", it.arguments?.getString(DETAIL_ARGUMENT_KEY2).toString())
             DetailScreen(navController)
         }
     }
