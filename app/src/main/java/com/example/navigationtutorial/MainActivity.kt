@@ -23,14 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             NavigationTutorialTheme {
                 navController = rememberNavController()
-                NavHost(navController = navController, startDestination = Screen.Home.route) {
-                    composable(route = Screen.Home.route) {
-                        HomeScreen(navController)
-                    }
-                    composable(route = Screen.Detail.route) {
-                        DetailScreen(navController)
-                    }
-                }
+                setUpNavGraph(navController = navController)
             }
         }
     }

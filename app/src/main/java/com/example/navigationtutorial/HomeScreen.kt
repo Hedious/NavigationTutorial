@@ -17,7 +17,7 @@ fun HomeScreen(navController: NavController) {
             text = "HomeScreen",
             color = MaterialTheme.colorScheme.background,
             modifier = Modifier.clickable {
-                navController.navigate(Screen.Detail.route)
+                navController.navigate(Screen.Detail.passId(10))
             })
     }
 }
