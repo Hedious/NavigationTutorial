@@ -1,20 +1,25 @@
-package com.example.navigationtutorial
+package com.example.navigationtutorial.navigation.nav_graph
 
 import android.util.Log
-import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import androidx.navigation.navigation
+import com.example.navigationtutorial.navigation.DETAIL_ARGUMENT_KEY
+import com.example.navigationtutorial.navigation.DETAIL_ARGUMENT_KEY2
+import com.example.navigationtutorial.screens.DetailScreen
+import com.example.navigationtutorial.navigation.HOME_ROUTE
+import com.example.navigationtutorial.screens.HomeScreen
+import com.example.navigationtutorial.navigation.Screen
 
-@Composable
-fun setUpNavGraph(navController: NavHostController) {
-    NavHost(navController, startDestination = Screen.Home.route) {
+fun NavGraphBuilder.homeNavGraph(navController: NavHostController) {
+    navigation(startDestination = Screen.Home.route, route = HOME_ROUTE) {
         composable(route = Screen.Home.route) {
             HomeScreen(navController)
         }
+
         composable(
             route = Screen.Detail.route,
             arguments = listOf(
@@ -32,6 +37,7 @@ fun setUpNavGraph(navController: NavHostController) {
             Log.d("NavTag", it.arguments?.getString(DETAIL_ARGUMENT_KEY2).toString())
             DetailScreen(navController)
         }
+
         composable(
             route = Screen.NewDetail.route,
             arguments = listOf(
@@ -51,5 +57,3 @@ fun setUpNavGraph(navController: NavHostController) {
         }
     }
 }
-
-data class test(val name: String)
