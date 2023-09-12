@@ -20,9 +20,28 @@ fun setUpNavGraph(navController: NavHostController) {
             arguments = listOf(
                 navArgument(DETAIL_ARGUMENT_KEY) {
                     type = NavType.IntType
+                    defaultValue = 200
                 },
                 navArgument(DETAIL_ARGUMENT_KEY2) {
                     type = NavType.StringType
+                    defaultValue = "Hello Default"
+                }
+            )
+        ) {
+            Log.d("NavTag", it.arguments?.getInt(DETAIL_ARGUMENT_KEY).toString())
+            Log.d("NavTag", it.arguments?.getString(DETAIL_ARGUMENT_KEY2).toString())
+            DetailScreen(navController)
+        }
+        composable(
+            route = Screen.NewDetail.route,
+            arguments = listOf(
+                navArgument(DETAIL_ARGUMENT_KEY) {
+                    type = NavType.IntType
+                    defaultValue = 0
+                },
+                navArgument(DETAIL_ARGUMENT_KEY2) {
+                    type = NavType.StringType
+                    defaultValue = "Hello Default"
                 }
             )
         ) {
